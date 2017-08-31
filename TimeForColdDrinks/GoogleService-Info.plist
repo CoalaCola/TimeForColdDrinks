@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>308141967374-enjga760agjgap98v6bqup1jn2nkaar2.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.308141967374-enjga760agjgap98v6bqup1jn2nkaar2</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAkSsc4oFJMyDqOp2R8z8G29OfXkb3UzGU</string>
+	<key>GCM_SENDER_ID</key>
+	<string>308141967374</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>WILD.TimeForColdDrinks</string>
+	<key>PROJECT_ID</key>
+	<string>timeforcolddrinks</string>
+	<key>STORAGE_BUCKET</key>
+	<string>timeforcolddrinks.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:308141967374:ios:62f11573f301f811</string>
+	<key>DATABASE_URL</key>
+	<string>https://timeforcolddrinks.firebaseio.com</string>
+</dict>
+</plist>

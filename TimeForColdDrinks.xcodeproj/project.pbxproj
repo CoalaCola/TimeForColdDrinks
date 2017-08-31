@@ -7,21 +7,64 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E71042F221AE914CB3CE1EA /* Pods_TimeForColdDrinks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F3CCD609D9C540B237757E5 /* Pods_TimeForColdDrinks.framework */; };
 		56A841711F52F27000EEA14F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A841701F52F27000EEA14F /* AppDelegate.swift */; };
-		56A841731F52F27000EEA14F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A841721F52F27000EEA14F /* ViewController.swift */; };
 		56A841761F52F27000EEA14F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56A841741F52F27000EEA14F /* Main.storyboard */; };
 		56A841781F52F27000EEA14F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56A841771F52F27000EEA14F /* Assets.xcassets */; };
 		56A8417B1F52F27000EEA14F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56A841791F52F27000EEA14F /* LaunchScreen.storyboard */; };
+		56C0D8971F5523AD002E79C3 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C0D8961F5523AD002E79C3 /* LoginViewController.swift */; };
+		56C0D8AB1F5578CB002E79C3 /* FacebookCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56C0D8B11F5578CB002E79C3 /* FacebookCore.framework */; };
+		56C0D8AC1F5578CB002E79C3 /* FacebookLogin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56C0D8B21F5578CB002E79C3 /* FacebookLogin.framework */; };
+		56C0D8AD1F5578CB002E79C3 /* FacebookShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56C0D8B31F5578CB002E79C3 /* FacebookShare.framework */; };
+		56C0D8AE1F5578CB002E79C3 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56C0D8B41F5578CB002E79C3 /* FBSDKCoreKit.framework */; };
+		56C0D8AF1F5578CB002E79C3 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56C0D8B51F5578CB002E79C3 /* FBSDKLoginKit.framework */; };
+		56C0D8B01F5578CB002E79C3 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56C0D8B61F5578CB002E79C3 /* FBSDKShareKit.framework */; };
+		56C0D8B81F55B95E002E79C3 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C0D8B71F55B95E002E79C3 /* MenuTableViewController.swift */; };
+		56C0D8BA1F55B986002E79C3 /* OrderListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C0D8B91F55B986002E79C3 /* OrderListTableViewController.swift */; };
+		56C0D8BC1F55B991002E79C3 /* YourOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C0D8BB1F55B991002E79C3 /* YourOrderTableViewController.swift */; };
+		56C0D8BE1F55B9DF002E79C3 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56C0D8BD1F55B9DF002E79C3 /* Drink.swift */; };
+		56C0D8C31F55DE64002E79C3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 56C0D8C11F55DE38002E79C3 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		56C0D8AA1F5568F5002E79C3 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		188E6C8FD2B7F6C12BEF6817 /* Pods-TimeForColdDrinks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeForColdDrinks.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimeForColdDrinks/Pods-TimeForColdDrinks.debug.xcconfig"; sourceTree = "<group>"; };
 		56A8416D1F52F27000EEA14F /* TimeForColdDrinks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeForColdDrinks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56A841701F52F27000EEA14F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		56A841721F52F27000EEA14F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		56A841751F52F27000EEA14F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		56A841771F52F27000EEA14F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56A8417A1F52F27000EEA14F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		56A8417C1F52F27000EEA14F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56C0D8961F5523AD002E79C3 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		56C0D8991F556809002E79C3 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		56C0D89C1F5568EE002E79C3 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		56C0D89D1F5568EE002E79C3 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		56C0D8B11F5578CB002E79C3 /* FacebookCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FacebookCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		56C0D8B21F5578CB002E79C3 /* FacebookLogin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FacebookLogin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		56C0D8B31F5578CB002E79C3 /* FacebookShare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FacebookShare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		56C0D8B41F5578CB002E79C3 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		56C0D8B51F5578CB002E79C3 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		56C0D8B61F5578CB002E79C3 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		56C0D8B71F55B95E002E79C3 /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		56C0D8B91F55B986002E79C3 /* OrderListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListTableViewController.swift; sourceTree = "<group>"; };
+		56C0D8BB1F55B991002E79C3 /* YourOrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourOrderTableViewController.swift; sourceTree = "<group>"; };
+		56C0D8BD1F55B9DF002E79C3 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
+		56C0D8C11F55DE38002E79C3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		56C0D8C51F566757002E79C3 /* TimeForColdDrinks.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TimeForColdDrinks.entitlements; sourceTree = "<group>"; };
+		7F3CCD609D9C540B237757E5 /* Pods_TimeForColdDrinks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TimeForColdDrinks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7E201DDE6A591C138E02AD3 /* Pods-TimeForColdDrinks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeForColdDrinks.release.xcconfig"; path = "Pods/Target Support Files/Pods-TimeForColdDrinks/Pods-TimeForColdDrinks.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +72,34 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56C0D8AB1F5578CB002E79C3 /* FacebookCore.framework in Frameworks */,
+				56C0D8AC1F5578CB002E79C3 /* FacebookLogin.framework in Frameworks */,
+				56C0D8AD1F5578CB002E79C3 /* FacebookShare.framework in Frameworks */,
+				56C0D8AE1F5578CB002E79C3 /* FBSDKCoreKit.framework in Frameworks */,
+				56C0D8AF1F5578CB002E79C3 /* FBSDKLoginKit.framework in Frameworks */,
+				56C0D8B01F5578CB002E79C3 /* FBSDKShareKit.framework in Frameworks */,
+				3E71042F221AE914CB3CE1EA /* Pods_TimeForColdDrinks.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5659FBD11F57B75500CFCAB6 /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				56C0D8BB1F55B991002E79C3 /* YourOrderTableViewController.swift */,
+			);
+			path = Order;
+			sourceTree = "<group>";
+		};
 		56A841641F52F27000EEA14F = {
 			isa = PBXGroup;
 			children = (
 				56A8416F1F52F27000EEA14F /* TimeForColdDrinks */,
 				56A8416E1F52F27000EEA14F /* Products */,
+				C2169B4A26C11DA1D03D7BB1 /* Pods */,
+				BA3A30D569DED462B98A2A18 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +114,70 @@
 		56A8416F1F52F27000EEA14F /* TimeForColdDrinks */ = {
 			isa = PBXGroup;
 			children = (
+				56C0D8C51F566757002E79C3 /* TimeForColdDrinks.entitlements */,
 				56A841701F52F27000EEA14F /* AppDelegate.swift */,
-				56A841721F52F27000EEA14F /* ViewController.swift */,
+				56C0D8C71F56984A002E79C3 /* Login */,
+				56C0D8C61F56983E002E79C3 /* Menu */,
+				5659FBD11F57B75500CFCAB6 /* Order */,
+				56C0D8B91F55B986002E79C3 /* OrderListTableViewController.swift */,
+				56C0D8C81F56985C002E79C3 /* Model */,
 				56A841741F52F27000EEA14F /* Main.storyboard */,
 				56A841771F52F27000EEA14F /* Assets.xcassets */,
 				56A841791F52F27000EEA14F /* LaunchScreen.storyboard */,
+				56C0D8C11F55DE38002E79C3 /* GoogleService-Info.plist */,
 				56A8417C1F52F27000EEA14F /* Info.plist */,
 			);
 			path = TimeForColdDrinks;
+			sourceTree = "<group>";
+		};
+		56C0D8C61F56983E002E79C3 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				56C0D8B71F55B95E002E79C3 /* MenuTableViewController.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		56C0D8C71F56984A002E79C3 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				56C0D8961F5523AD002E79C3 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		56C0D8C81F56985C002E79C3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				56C0D8BD1F55B9DF002E79C3 /* Drink.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BA3A30D569DED462B98A2A18 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				56C0D8B11F5578CB002E79C3 /* FacebookCore.framework */,
+				56C0D8B21F5578CB002E79C3 /* FacebookLogin.framework */,
+				56C0D8B31F5578CB002E79C3 /* FacebookShare.framework */,
+				56C0D8B41F5578CB002E79C3 /* FBSDKCoreKit.framework */,
+				56C0D8B51F5578CB002E79C3 /* FBSDKLoginKit.framework */,
+				56C0D8B61F5578CB002E79C3 /* FBSDKShareKit.framework */,
+				56C0D89C1F5568EE002E79C3 /* FBSDKLoginKit.framework */,
+				56C0D89D1F5568EE002E79C3 /* FBSDKShareKit.framework */,
+				56C0D8991F556809002E79C3 /* FBSDKCoreKit.framework */,
+				7F3CCD609D9C540B237757E5 /* Pods_TimeForColdDrinks.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C2169B4A26C11DA1D03D7BB1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				188E6C8FD2B7F6C12BEF6817 /* Pods-TimeForColdDrinks.debug.xcconfig */,
+				E7E201DDE6A591C138E02AD3 /* Pods-TimeForColdDrinks.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +187,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 56A8417F1F52F27000EEA14F /* Build configuration list for PBXNativeTarget "TimeForColdDrinks" */;
 			buildPhases = (
+				63C1C1A022E36D4DA2F71990 /* [CP] Check Pods Manifest.lock */,
 				56A841691F52F27000EEA14F /* Sources */,
 				56A8416A1F52F27000EEA14F /* Frameworks */,
 				56A8416B1F52F27000EEA14F /* Resources */,
+				29010F5D054D920FABB1A69C /* [CP] Embed Pods Frameworks */,
+				865590E6F8F92056F4AD8A21 /* [CP] Copy Pods Resources */,
+				56C0D8AA1F5568F5002E79C3 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -97,6 +217,11 @@
 					56A8416C1F52F27000EEA14F = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -124,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56A8417B1F52F27000EEA14F /* LaunchScreen.storyboard in Resources */,
+				56C0D8C31F55DE64002E79C3 /* GoogleService-Info.plist in Resources */,
 				56A841781F52F27000EEA14F /* Assets.xcassets in Resources */,
 				56A841761F52F27000EEA14F /* Main.storyboard in Resources */,
 			);
@@ -131,12 +257,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		29010F5D054D920FABB1A69C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TimeForColdDrinks/Pods-TimeForColdDrinks-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		63C1C1A022E36D4DA2F71990 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		865590E6F8F92056F4AD8A21 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TimeForColdDrinks/Pods-TimeForColdDrinks-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		56A841691F52F27000EEA14F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				56A841731F52F27000EEA14F /* ViewController.swift in Sources */,
+				56C0D8B81F55B95E002E79C3 /* MenuTableViewController.swift in Sources */,
+				56C0D8BC1F55B991002E79C3 /* YourOrderTableViewController.swift in Sources */,
+				56C0D8971F5523AD002E79C3 /* LoginViewController.swift in Sources */,
+				56C0D8BE1F55B9DF002E79C3 /* Drink.swift in Sources */,
+				56C0D8BA1F55B986002E79C3 /* OrderListTableViewController.swift in Sources */,
 				56A841711F52F27000EEA14F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,8 +450,10 @@
 		};
 		56A841801F52F27000EEA14F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 188E6C8FD2B7F6C12BEF6817 /* Pods-TimeForColdDrinks.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TimeForColdDrinks/TimeForColdDrinks.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G9JF9YBU33;
 				INFOPLIST_FILE = TimeForColdDrinks/Info.plist;
@@ -287,8 +467,10 @@
 		};
 		56A841811F52F27000EEA14F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E7E201DDE6A591C138E02AD3 /* Pods-TimeForColdDrinks.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TimeForColdDrinks/TimeForColdDrinks.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G9JF9YBU33;
 				INFOPLIST_FILE = TimeForColdDrinks/Info.plist;
