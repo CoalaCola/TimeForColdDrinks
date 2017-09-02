@@ -271,6 +271,8 @@ class LoginViewController: UIViewController, LoginButtonDelegate {
                 self.registerUserIntoDatabase(uid: uid, value: value as [String : AnyObject])
                 print("Successfully logged in with facebook...")
             }
+        } else {
+            self.activityIndicatorView.stopAnimating()
         }
     }
     
