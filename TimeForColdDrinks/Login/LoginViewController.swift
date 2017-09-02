@@ -15,8 +15,6 @@ import FacebookCore
 
 class LoginViewController: UIViewController, LoginButtonDelegate {
     
-   
-    
     @IBOutlet var loginSuperView: UIView!
     
     // facebook login
@@ -38,14 +36,11 @@ class LoginViewController: UIViewController, LoginButtonDelegate {
             self.performSegue(withIdentifier: PropertyKeys.loginToMenuSegue, sender: self)
             print("Successfully logged in with facebook...")
         }
-        
     }
     //facebook logout
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
-        
-        print("Facebook logout")
-        
-    }
+            print("Facebook logout")
+         }
     
     
     /** @var handle
@@ -165,13 +160,9 @@ class LoginViewController: UIViewController, LoginButtonDelegate {
                 guard let uid = user?.uid else {
                     return
                 }
-                
                 let value = ["name": name, "email": email]
-                
-                
                 self.updataDisplayName(name: name)
                 self.registerUserIntoDatabase(uid: uid, value: value as [String : AnyObject])
-                
         })
     }
     

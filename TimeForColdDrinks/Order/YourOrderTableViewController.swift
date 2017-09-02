@@ -25,13 +25,10 @@ class yourOrderTableViewController: UITableViewController {
     @IBAction func sugarSegmentIndexChanged(_ sender: UISegmentedControl) {
         
         order.sugar = sender.titleForSegment(at: sugarSegment.selectedSegmentIndex)
-        
-        
     }
     
     @IBAction func iceSegmentIndexChanged(_ sender: UISegmentedControl) {
-        order.ice = sender.titleForSegment(at: iceSegment.selectedSegmentIndex)
-        
+        order.ice = sender.titleForSegment(at: iceSegment.selectedSegmentIndex)     
     }
     
     @IBAction func orderSaveButton(_ sender: Any) {
@@ -46,11 +43,6 @@ class yourOrderTableViewController: UITableViewController {
         doubleCheck.addAction(cancel)
         doubleCheck.addAction(sure)
         present(doubleCheck, animated: true, completion: nil)
-        
-        
-        
-        
-        
     }
     
     
@@ -93,13 +85,10 @@ class yourOrderTableViewController: UITableViewController {
             drinkNumber = newOrders.count
             print(drinkNumber!)
         }
-            
         )
         
         let orderList = ref.child("orderList")
         orderList.child(uid!).setValue(value)
-        
-        
         
         let updateUserDrink = ref.child("users").child(uid!)
         updateUserDrink.updateChildValues(value, withCompletionBlock: { (err, ref) in

@@ -29,7 +29,6 @@ class OrderCompleteTableViewController: UITableViewController {
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
         }
-        
     }
     
     
@@ -68,12 +67,6 @@ class OrderCompleteTableViewController: UITableViewController {
             self.sugarLabel.text = snapshotValue["sugar"]
             self.iceLabel.text = snapshotValue["ice"]
             }
-//            }
-//            DispatchQueue.main.async {
-////                self.drinks = newDrinks
-////                self.tableView.reloadData()
-//            }
-
         }) { (error) in
             print(error.localizedDescription)
         }

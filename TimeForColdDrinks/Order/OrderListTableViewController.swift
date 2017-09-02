@@ -37,8 +37,6 @@ class orderListTableViewController: UITableViewController {
             print("complete fetch")
             self.allUid = newAllUid
             print(self.allUid)
-            
-            
         }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -95,7 +93,6 @@ class orderListTableViewController: UITableViewController {
     func fetchAllDrinkOrdersUid(completion: @escaping ([String]) -> ()) {
         var newAllUid = [String]()
         ref = Database.database().reference()
-        
         ref.child("orderList").observe(.value, with: { (snapshot) in
             newAllUid = []
             for uid in snapshot.children {
@@ -106,13 +103,8 @@ class orderListTableViewController: UITableViewController {
                         completion(newAllUid)
                     }          
                 }
-                
             }
-            
-            
-        }
-        )
-        
+        })
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
