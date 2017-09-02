@@ -44,17 +44,14 @@ class menuTableViewController: UITableViewController {
         }) { (error) in
             print(error.localizedDescription)
         }
-        
-        
-        
-    }
+         }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = "Menu"
-        
         fetchDrinkMenu()
+        
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -103,11 +100,12 @@ class menuTableViewController: UITableViewController {
         
         let yourOderController = segue.destination as? yourOrderTableViewController
         let row = tableView.indexPathForSelectedRow?.row
-        print(drinks[row!])
-        print(drinks[row!].drinkName)
         
-
-        yourOderController?.order.append(drinks[row!].drinkName)
+        
+        yourOderController?.order.drinkName = drinks[row!].drinkName
+        
+        yourOderController?.order.price = drinks[row!].price
+//        yourOderController?.order.append(drinks[row!].drinkName)
         
     }
     

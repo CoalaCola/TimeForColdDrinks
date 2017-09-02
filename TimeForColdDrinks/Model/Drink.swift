@@ -55,18 +55,48 @@ struct Order {
     var sugar:String?
     var ice:String?
     
-    init(dictionary: [String: AnyObject]) {
+    init() {
+//        var ref: DatabaseReference!
+//        let uid = Auth.auth().currentUser?.uid
+//        ref = Database.database().reference()
+//        var newName: String?
+//        ref.child("users").child(uid!).observeSingleEvent(of: .value, with: { snapshot in
+//            if let snapshotValue = snapshot.value as? [String: String] {
+//                newName = snapshotValue["name"]
+//
+//            }
+//            DispatchQueue.main.async {
+//                self.name = newName
+//            }
+//        })
         
         
-        name = dictionary["name"] as? String
-        drinkName = dictionary["drinkName"] as? String
-        price = dictionary["price"] as? String
-        sugar = dictionary["sugar"] as? String
-        ice = dictionary["ice"] as? String
+//        name = newName
+        
+        name = Auth.auth().currentUser?.displayName
+        drinkName = nil
+        price = nil
+        sugar = "100%"
+        ice = "100%"
+    }
+    
+    init(snapshot: DataSnapshot) {
+        
+        if let snapshotValue = snapshot.value as? [String: String] {
+        name = (snapshotValue["name"])!
+        drinkName = (snapshotValue["drinkName"])!
+        price = (snapshotValue["price"])!
+        sugar = (snapshotValue["sugar"])!
+        ice = (snapshotValue["ice"])!
+        
+        } else {
+            print("Order init snapshot failed")
+        }
     }
 }
 
 struct PropertyKeys {
     static let loginToMenuSegue = "LoginToMenu"
     static let drinkList = "DrinkList"
+    static let orderListCell = "OrderListCell"
 }

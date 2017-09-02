@@ -14,38 +14,14 @@ import FacebookCore
 
 
 class LoginViewController: UIViewController, LoginButtonDelegate {
-    // facebook login
-    func loginButtonDidCompleteLogin(_ loginButton: LoginButton, result: LoginResult) {
-        
-        let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
-        Auth.auth().signIn(with: credential) { (user, error) in
-            if let error = error {
-                print(error)
-                return
-            }
-            guard let uid = user?.uid else {
-                return
-            }
-            
-            let value = ["name": user?.displayName, "email": user?.email]
-            self.registerUserIntoDatabase(uid: uid, value: value as [String : AnyObject])
-            
-            self.dismiss(animated: true, completion: nil)
-            
-            
-            print("Successfully logged in with facebook...")
-        }
-    }
     
-    func loginButtonDidLogOut(_ loginButton: LoginButton) {
-        print("Facebook logout")
-    }
+   
     
-   @IBOutlet var loginSuperView: UIView!
-    
+    @IBOutlet var loginSuperView: UIView!
     
     // facebook login
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        
         if let error = error {
             print(error.localizedDescription)
             return
@@ -55,9 +31,10 @@ class LoginViewController: UIViewController, LoginButtonDelegate {
         Auth.auth().signIn(with: credential) { (user, error) in
             if let error = error {
                 print(error)
+                self.activityIndicatorView.stopAnimating()
                 return
             }
-            
+            self.activityIndicatorView.stopAnimating()
             self.performSegue(withIdentifier: PropertyKeys.loginToMenuSegue, sender: self)
             print("Successfully logged in with facebook...")
         }
@@ -101,10 +78,15 @@ class LoginViewController: UIViewController, LoginButtonDelegate {
     @IBOutlet weak var emailLoginRegisterOutletButton: UIButton!
     
     @IBAction func emailLoginRegisterButton(_ sender: Any) {
+        activityIndicatorView.startAnimating()
         handleLoginRegister()
-        
-        
     }
+    
+    @IBOutlet weak var goCheckYourDrinkButton: UIButton!
+    
+    
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    
     
     func addFacebookButton() {
         let facebookLoginButton = LoginButton(readPermissions: [ .publicProfile, .email, .publicProfile ])
@@ -124,10 +106,7 @@ class LoginViewController: UIViewController, LoginButtonDelegate {
         facebookLoginButton.delegate = self
     }
     
-    
-    
     @IBOutlet var buttonLayout: [UIButton]!
-    
     
     @IBAction func logoutButton(_ sender: Any) {
         let firebaseAuth = Auth.auth()
@@ -140,28 +119,28 @@ class LoginViewController: UIViewController, LoginButtonDelegate {
         
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         layoutDesign()
         addFacebookButton()
-        
-        
+        goCheckYourDrinkButton.isHidden = true
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        
+        if Auth.auth().currentUser != nil {
+            goCheckYourDrinkButton.isHidden = false
+        performSegue(withIdentifier: PropertyKeys.loginToMenuSegue, sender: true)
+        } else {
+            goCheckYourDrinkButton.isHidden = true
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
     }
-    
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -182,16 +161,28 @@ class LoginViewController: UIViewController, LoginButtonDelegate {
                     self.failToLoginRegister()
                     return
                 } else {
-                    
                 }
                 guard let uid = user?.uid else {
                     return
                 }
                 
                 let value = ["name": name, "email": email]
+                
+                
+                self.updataDisplayName(name: name)
                 self.registerUserIntoDatabase(uid: uid, value: value as [String : AnyObject])
+                
         })
     }
+    
+    func updataDisplayName(name: String) {
+        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+        changeRequest?.displayName = name
+        changeRequest?.commitChanges { (error) in
+            // ...
+        }
+    }
+    
     private func registerUserIntoDatabase(uid: String, value: [String: AnyObject]) {
         let ref = Database.database().reference()
         let userReference = ref.child("users").child(uid)
@@ -206,8 +197,9 @@ class LoginViewController: UIViewController, LoginButtonDelegate {
             
             //this setter potentially crasher if key don't match
             //            drink.setValuesForKeys(value)
+            self.activityIndicatorView.stopAnimating()
             self.performSegue(withIdentifier: PropertyKeys.loginToMenuSegue, sender: self)
-            self.dismiss(animated: true, completion: nil)
+            
         })
         
     }
@@ -224,14 +216,12 @@ class LoginViewController: UIViewController, LoginButtonDelegate {
                 self.failToLoginRegister()
                 return
             } else {
+                self.activityIndicatorView.stopAnimating()
                 self.performSegue(withIdentifier: PropertyKeys.loginToMenuSegue, sender: self)
             }
             
-            self.dismiss(animated: true, completion: nil)
             print("welcome \(String(describing: user?.email).description) login success")
-            
         }
-        
     }
     
     func handleLoginRegister() {
@@ -251,24 +241,15 @@ class LoginViewController: UIViewController, LoginButtonDelegate {
     
     func failToLoginRegister() {
         let cancelAction = UIAlertAction(title: "Retry", style: .cancel, handler: nil)
-        let alertController = UIAlertController(title: "Error", message: "Wrong login information. Passwords must be above 6 characters.", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Error", message: "Wrong login information. Passwords must be above 6 characters or email has been registered", preferredStyle: .alert)
         
         alertController.addAction(cancelAction)
-        present(alertController, animated: true, completion: nil)
+        present(alertController, animated: true, completion: self.activityIndicatorView.stopAnimating)
     }
     
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let menuTableViewController = segue.destination as? menuTableViewController
-        
-        
-    }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
-    
-    
     
     /*
      func checkLoginInfoThenPerformSegue() {
@@ -281,33 +262,59 @@ class LoginViewController: UIViewController, LoginButtonDelegate {
      // ...
      }
      */
+    // facebook login delegate
+    func loginButtonDidCompleteLogin(_ loginButton: LoginButton, result: LoginResult) {
+        self.activityIndicatorView.startAnimating()
+        if let currentFbsdkAccessToken = FBSDKAccessToken.current() {
+            let credential = FacebookAuthProvider.credential(withAccessToken: currentFbsdkAccessToken.tokenString)
+            
+            Auth.auth().signIn(with: credential) { (user, error) in
+                if let error = error {
+                    print(error)
+                    return
+                }
+                guard let uid = user?.uid else {
+                    return
+                }
+                let value = ["name": user?.displayName, "email": user?.email]
+                self.registerUserIntoDatabase(uid: uid, value: value as [String : AnyObject])
+                print("Successfully logged in with facebook...")
+            }
+        }
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: LoginButton) {
+        print("Facebook logout")
+    }
 }
 
 
 // FB Login
-extension LoginViewController {
-    @objc func loginButtonClicked() {
-        let loginManager = LoginManager()
-        loginManager.logIn([ .publicProfile, .email, .publicProfile ], viewController: self) { loginResult in
-            switch loginResult {
-            case .failed(let error):
-                print(error)
-            case .cancelled:
-                print("FB Use cancelled login.")
-            case .success(let grantedPermissions, let declinedPermissions, let accessToken):
-                print("FB Logged in!")
-            }
-        }
-    }
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
-    
-}
+//extension LoginViewController {
+//    @objc func loginButtonClicked() {
+//        let loginManager = LoginManager()
+//        loginManager.logIn([ .publicProfile, .email, .publicProfile ], viewController: self) { loginResult in
+//            switch loginResult {
+//            case .failed(let error):
+//                print(error)
+//            case .cancelled:
+//                print("FB Use cancelled login.")
+//            case .success(let grantedPermissions, let declinedPermissions, let accessToken):
+//                print("FB Logged in!")
+//            }
+//        }
+//    }
+//
+//}
+//
+/*
+ // MARK: - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+ // Get the new view controller using segue.destinationViewController.
+ // Pass the selected object to the new view controller.
+ }
+ */
+
+

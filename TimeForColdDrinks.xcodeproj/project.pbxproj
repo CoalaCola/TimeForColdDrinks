@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3E71042F221AE914CB3CE1EA /* Pods_TimeForColdDrinks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F3CCD609D9C540B237757E5 /* Pods_TimeForColdDrinks.framework */; };
+		561D6A4C1F57F27500856779 /* OrderCompleteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561D6A4B1F57F27500856779 /* OrderCompleteTableViewController.swift */; };
+		561D6A4E1F5803A100856779 /* OrderListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561D6A4D1F5803A100856779 /* OrderListTableViewCell.swift */; };
 		56A841711F52F27000EEA14F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A841701F52F27000EEA14F /* AppDelegate.swift */; };
 		56A841761F52F27000EEA14F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56A841741F52F27000EEA14F /* Main.storyboard */; };
 		56A841781F52F27000EEA14F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56A841771F52F27000EEA14F /* Assets.xcassets */; };
@@ -41,6 +43,8 @@
 
 /* Begin PBXFileReference section */
 		188E6C8FD2B7F6C12BEF6817 /* Pods-TimeForColdDrinks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TimeForColdDrinks.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TimeForColdDrinks/Pods-TimeForColdDrinks.debug.xcconfig"; sourceTree = "<group>"; };
+		561D6A4B1F57F27500856779 /* OrderCompleteTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCompleteTableViewController.swift; sourceTree = "<group>"; };
+		561D6A4D1F5803A100856779 /* OrderListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderListTableViewCell.swift; sourceTree = "<group>"; };
 		56A8416D1F52F27000EEA14F /* TimeForColdDrinks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeForColdDrinks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56A841701F52F27000EEA14F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		56A841751F52F27000EEA14F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -89,6 +93,9 @@
 			isa = PBXGroup;
 			children = (
 				56C0D8BB1F55B991002E79C3 /* YourOrderTableViewController.swift */,
+				561D6A4B1F57F27500856779 /* OrderCompleteTableViewController.swift */,
+				56C0D8B91F55B986002E79C3 /* OrderListTableViewController.swift */,
+				561D6A4D1F5803A100856779 /* OrderListTableViewCell.swift */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -119,7 +126,6 @@
 				56C0D8C71F56984A002E79C3 /* Login */,
 				56C0D8C61F56983E002E79C3 /* Menu */,
 				5659FBD11F57B75500CFCAB6 /* Order */,
-				56C0D8B91F55B986002E79C3 /* OrderListTableViewController.swift */,
 				56C0D8C81F56985C002E79C3 /* Model */,
 				56A841741F52F27000EEA14F /* Main.storyboard */,
 				56A841771F52F27000EEA14F /* Assets.xcassets */,
@@ -218,6 +224,9 @@
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Keychain = {
 								enabled = 1;
 							};
@@ -312,6 +321,8 @@
 			files = (
 				56C0D8B81F55B95E002E79C3 /* MenuTableViewController.swift in Sources */,
 				56C0D8BC1F55B991002E79C3 /* YourOrderTableViewController.swift in Sources */,
+				561D6A4E1F5803A100856779 /* OrderListTableViewCell.swift in Sources */,
+				561D6A4C1F57F27500856779 /* OrderCompleteTableViewController.swift in Sources */,
 				56C0D8971F5523AD002E79C3 /* LoginViewController.swift in Sources */,
 				56C0D8BE1F55B9DF002E79C3 /* Drink.swift in Sources */,
 				56C0D8BA1F55B986002E79C3 /* OrderListTableViewController.swift in Sources */,

@@ -1,15 +1,38 @@
 //
-//  orderListTableViewController.swift
+//  OrderCompleteTableViewController.swift
 //  TimeForColdDrinks
 //
-//  Created by Vince Lee on 2017/8/29.
+//  Created by Vince Lee on 2017/8/31.
 //  Copyright © 2017年 Vince Lee. All rights reserved.
 //
 
 import UIKit
+import Firebase
 
-class orderListTableViewController: UITableViewController {
 
+class OrderCompleteTableViewController: UITableViewController {
+
+    var completeOrder = Order()
+    
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var drinkNameLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var sugarLabel: UILabel!
+    @IBOutlet weak var iceLabel: UILabel!
+   
+    @IBAction func logoutButton(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,23 +42,44 @@ class orderListTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
+    override func viewWillAppear(_ animated: Bool) {
+        fetchCompleteOrder()
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
+    func fetchCompleteOrder() {
+        var ref: DatabaseReference!
+        ref = Database.database().reference()
+        let uid = Auth.auth().currentUser?.uid
+        ref.child("users").child(uid!).observeSingleEvent(of: .value, with: { snapshot in
+            
+            if let snapshotValue = snapshot.value as? [String: String] {
+            self.nameLabel.text = snapshotValue["name"]
+            self.drinkNameLabel.text = snapshotValue["drinkName"]
+            if let price = snapshotValue["price"] {
+                self.priceLabel.text = "$\(price)"
+            } else {
+                self.priceLabel.text = ""
+                }
+            self.sugarLabel.text = snapshotValue["sugar"]
+            self.iceLabel.text = snapshotValue["ice"]
+            }
+//            }
+//            DispatchQueue.main.async {
+////                self.drinks = newDrinks
+////                self.tableView.reloadData()
+//            }
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        }) { (error) in
+            print(error.localizedDescription)
+        }
     }
+}
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -92,4 +136,4 @@ class orderListTableViewController: UITableViewController {
     }
     */
 
-}
+
