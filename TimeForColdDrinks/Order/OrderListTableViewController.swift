@@ -37,6 +37,7 @@ class orderListTableViewController: UITableViewController {
             print("complete fetch")
             self.allUid = newAllUid
             print(self.allUid)
+            self.viewWillAppear(true)
         }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
