@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FBSDKLoginKit
 
 
 class OrderCompleteTableViewController: UITableViewController {
@@ -29,6 +30,8 @@ class OrderCompleteTableViewController: UITableViewController {
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
         }
+        FBSDKLoginManager().logOut()
+        
     }
     
     
